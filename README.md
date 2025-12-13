@@ -14,10 +14,15 @@
 - Users can:
   - **Login with GitHub**
   - **Create**, **edit**, and **publish** articles
-  - View articles posted by others
+  - View articles posted by other authors
+  - See Detailed author profiles
 - Homepage with a feed of published articles
 - SEO-friendly, fast, and clean UI
 - Built with **Next.js** and modern frontend standards
+- Content management powered by **Sanity** CMS
+- Data fetching using **GROQ** queries
+- Mutation queries for creating and updating content
+- Error tracking and performance monitoring with **Sentry**
 
 ---
 

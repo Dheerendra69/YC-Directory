@@ -14,16 +14,18 @@ export default async function Home({
 
   const session = await auth();
 
-  console.log(session?.id);
-
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <>
       <section className="pink_container">
-        <h1 className="heading">
-          Pitch Your Startup, <br />
-          Connect With Entrepreneurs
+        <h1 className="heading text-4xl font-bold leading-tight">
+          <span className="block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing">
+            Pitch Your Startup,
+          </span>
+          <span className="block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing animation-delay-3000">
+            Connect With Entrepreneurs
+          </span>
         </h1>
 
         <p className="sub-heading !max-w-3xl">

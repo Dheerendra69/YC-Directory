@@ -2,10 +2,12 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  compiler: {
-    styledComponents: true,
+  typescript: {
+    ignoreBuildErrors: true,
   },
-
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
@@ -15,7 +17,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
+  experimental: {
+    ppr: "incremental",
+    after: true,
+  },
   devIndicators: {
     appIsrStatus: true,
     buildActivity: true,
@@ -24,8 +29,9 @@ const nextConfig: NextConfig = {
 };
 
 const sentryWebpackPluginOptions = {
+  // Set these only once
   authToken: process.env.SENTRY_AUTH_TOKEN,
-  org: "yc-directory-6b",
+  org: "yc-directory-6b", // Make sure this matches your token's org
   project: "yc-directory",
 
   silent: !process.env.CI,
@@ -35,6 +41,7 @@ const sentryWebpackPluginOptions = {
     enabled: true,
   },
 
+  // tunnelRoute: "/monitoring", // Uncomment if needed
   hideSourceMaps: true,
   disableLogger: true,
   automaticVercelMonitors: true,

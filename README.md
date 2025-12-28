@@ -16,6 +16,7 @@
   - **Create**, **edit**, and **publish** articles
   - View articles posted by other authors
   - See Detailed author profiles
+  - **Track view counts for their articles**
 - Homepage with a feed of published articles
 - SEO-friendly, fast, and clean UI
 - Built with **Next.js** and modern frontend standards

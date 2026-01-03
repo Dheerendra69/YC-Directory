@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="w-full border-t bg-white">
@@ -5,9 +7,9 @@ const Footer = () => {
         <p>© {2024} YC-Directory. All rights reserved.</p>
 
         <div className="mt-4 sm:mt-0 flex gap-6">
-          <a href="/" className="hover:text-gray-900 transition">
+          <Link href="/" className="hover:text-gray-900 transition">
             Home
-          </a>
+          </Link>
           {/* <a href="/" className="hover:text-gray-900 transition">
             Privacy
           </a>

@@ -20,6 +20,11 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
     description,
   } = post;
 
+  const authorId = author?._id;
+  const authorName = author?.name ?? "Unknown Author";
+  const authorImage = author?.image ?? "/avatar-placeholder.png";
+  const startupImage = image ?? "/startup-placeholder.png";
+
   return (
     <li className="startup-card group">
       <div className="flex-between">
@@ -32,34 +37,49 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 
       <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`/user/${author?._id}`}>
-            <p className="text-16-medium line-clamp-1">{author?.name}</p>
-          </Link>
+          {authorId && (
+            <Link href={`/user/${authorId}`}>
+              <p className="text-16-medium line-clamp-1">{authorName}</p>
+            </Link>
+          )}
+
           <Link href={`/startup/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`/user/${author?._id}`}>
-          <Image
-            src={author?.image!}
-            alt={author?.name!}
-            width={48}
-            height={48}
-            className="rounded-full"
-          />
-        </Link>
+
+        {authorId && (
+          <Link href={`/user/${authorId}`}>
+            <Image
+              src={authorImage}
+              alt={authorName}
+              width={48}
+              height={48}
+              className="rounded-full"
+            />
+          </Link>
+        )}
       </div>
 
       <Link href={`/startup/${_id}`}>
         <p className="startup-card_desc">{description}</p>
 
-        <img src={image} alt="placeholder" className="startup-card_img" />
+        <Image
+          src={startupImage}
+          alt={title || 'Title'}
+          width={640}
+          height={360}
+          className="startup-card_img"
+        />
       </Link>
 
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category?.toLowerCase()}`}>
-          <p className="text-16-medium">{category}</p>
-        </Link>
+        {category && (
+          <Link href={`/?query=${category.toLowerCase()}`}>
+            <p className="text-16-medium">{category}</p>
+          </Link>
+        )}
+
         <Button className="startup-card_btn" asChild>
           <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
@@ -70,7 +90,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 
 export const StartupCardSkeleton = () => (
   <>
-    {[0, 1, 2, 3, 4].map((index: number) => (
+    {[0, 1, 2, 3, 4].map((index) => (
       <li key={cn("skeleton", index)}>
         <Skeleton className="startup-card_skeleton" />
       </li>

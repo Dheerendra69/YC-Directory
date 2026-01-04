@@ -43,11 +43,15 @@ const editorPosts = playlist?.select || [];
       </section>
 
       <section className="section_container">
-        <Image
-          src={post.image}
-          alt="thumbnail"
-          className="w-full h-auto rounded-xl"
-        />
+        <div className="relative w-full h-[400px]">
+          <Image
+            src={post.image}
+            alt="thumbnail"
+            fill
+            className="object-cover rounded-xl"
+            priority
+          />
+        </div>
 
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex-between gap-5">

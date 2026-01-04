@@ -5,7 +5,9 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-
+  experimental: {
+    after: true,
+  },
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

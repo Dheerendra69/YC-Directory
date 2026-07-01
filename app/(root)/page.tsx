@@ -19,11 +19,19 @@ export default async function Home({
   return (
     <>
       <section className="pink_container">
-        <h1 className="heading text-4xl font-bold leading-tight">
-          <span className="block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing">
+        <h1 className="heading mx-auto max-w-5xl text-center lg:text-left font-bold leading-tight text-3xl xs:text-4xl md:text-5xl lg:text-6xl">
+          <span className="block sm:hidden">
             Pitch Your Startup,
           </span>
-          <span className="block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing animation-delay-3000">
+          <span className="block sm:hidden">
+            Connect With Entrepreneurs
+          </span>
+
+          <span className="hidden sm:block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing">
+            Pitch Your Startup,
+          </span>
+
+          <span className="hidden sm:block overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing animation-delay-3000">
             Connect With Entrepreneurs
           </span>
         </h1>
